@@ -27,7 +27,7 @@ class AuditLogControllerTest {
     private TestRestTemplate restTemplate;
 
     @Test
-    void testLogAuditEvent_WithValidRequest_ShouldReturn200() {
+    void testLogAuditEventWithValidRequestShouldReturn200() {
         // Arrange
         String url = "http://localhost:" + port + "/api/v1/audit/log";
         AuditLogRequest request = new AuditLogRequest("LOGIN", "User login attempt", "user123");
@@ -42,7 +42,7 @@ class AuditLogControllerTest {
     }
 
     @Test
-    void testLogAuditEvent_ShouldReturnEventIdAndTimestamp() {
+    void testLogAuditEventShouldReturnEventIdAndTimestamp() {
         // Arrange
         String url = "http://localhost:" + port + "/api/v1/audit/log";
         AuditLogRequest request = new AuditLogRequest("LOGOUT", "User logout", "user456");
@@ -61,7 +61,7 @@ class AuditLogControllerTest {
     }
 
     @Test
-    void testLogAuditEvent_WithMissingEventType_ShouldReturn400() {
+    void testLogAuditEventWithMissingEventTypeShouldReturn400() {
         // Arrange
         String url = "http://localhost:" + port + "/api/v1/audit/log";
         AuditLogRequest request = new AuditLogRequest(null, "Test description", "user789");
@@ -75,7 +75,7 @@ class AuditLogControllerTest {
     }
 
     @Test
-    void testLogAuditEvent_WithMissingUserId_ShouldReturn400() {
+    void testLogAuditEventWithMissingUserIdShouldReturn400() {
         // Arrange
         String url = "http://localhost:" + port + "/api/v1/audit/log";
         AuditLogRequest request = new AuditLogRequest("LOGIN", "Test description", null);
@@ -89,7 +89,7 @@ class AuditLogControllerTest {
     }
 
     @Test
-    void testLogAuditEvent_WithEmptyEventType_ShouldReturn400() {
+    void testLogAuditEventWithEmptyEventTypeShouldReturn400() {
         // Arrange
         String url = "http://localhost:" + port + "/api/v1/audit/log";
         AuditLogRequest request = new AuditLogRequest("", "Test description", "user123");

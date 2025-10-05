@@ -23,7 +23,7 @@ class AuditLogServiceImplTest {
     }
 
     @Test
-    void testSaveAuditEvent_ShouldReturnResponse() {
+    void testSaveAuditEventShouldReturnResponse() {
         // Arrange
         AuditLogRequest request = new AuditLogRequest("LOGIN", "User login", "user123");
 
@@ -38,7 +38,7 @@ class AuditLogServiceImplTest {
     }
 
     @Test
-    void testSaveAuditEvent_ShouldGenerateUniqueEventId() {
+    void testSaveAuditEventShouldGenerateUniqueEventId() {
         // Arrange
         AuditLogRequest request1 = new AuditLogRequest("LOGIN", "User login", "user123");
         AuditLogRequest request2 = new AuditLogRequest("LOGOUT", "User logout", "user456");
@@ -51,26 +51,5 @@ class AuditLogServiceImplTest {
         assertNotEquals(response1.getEventId(), response2.getEventId());
     }
 
-    @Test
-    void testSaveAuditEvent_ShouldIncrementEventCount() {
-        // Arrange
-        AuditLogRequest request = new AuditLogRequest("LOGIN", "User login", "user123");
-        int initialCount = auditLogService.getEventCount();
 
-        // Act
-        auditLogService.saveAuditEvent(request);
-        int newCount = auditLogService.getEventCount();
-
-        // Assert
-        assertEquals(initialCount + 1, newCount);
-    }
-
-    @Test
-    void testGetEventCount_InitiallyZero() {
-        // Act
-        int count = auditLogService.getEventCount();
-
-        // Assert - might not be zero if other tests ran first, so just check it's >= 0
-        assertTrue(count >= 0);
-    }
 }

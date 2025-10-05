@@ -45,9 +45,4 @@ public class AuditLogServiceImpl implements AuditLogService {
                 "Audit event logged successfully"
         );
     }
-
-    @Override
-    public int getEventCount() {
-        return auditEventStore.size();
-    }
 }

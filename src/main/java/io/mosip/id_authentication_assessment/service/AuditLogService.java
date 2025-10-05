@@ -19,10 +19,4 @@ public interface AuditLogService {
      */
     AuditLogResponse saveAuditEvent(AuditLogRequest request);
 
-    /**
-     * Get total number of stored events
-     *
-     * @return count of stored events
-     */
-    int getEventCount();
 }

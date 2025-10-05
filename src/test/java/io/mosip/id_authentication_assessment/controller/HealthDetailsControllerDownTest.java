@@ -30,7 +30,7 @@ class HealthDetailsControllerDownTest {
     private TestRestTemplate restTemplate;
 
     @Test
-    void testHealthDetails_WhenDown_ShouldReturn503() {
+    void testHealthDetailsWhenDownShouldReturn503() {
         // Arrange
         String url = "http://localhost:" + port + "/api/v1/health/details";
 

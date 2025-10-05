@@ -34,7 +34,7 @@ class HealthDetailsControllerTest {
     private TestRestTemplate restTemplate;
 
     @Test
-    void testHealthDetails_WhenUp_ShouldReturn200() {
+    void testHealthDetailsWhenUpShouldReturn200() {
         // Arrange
         String url = "http://localhost:" + port + "/api/v1/health/details";
 
@@ -49,7 +49,7 @@ class HealthDetailsControllerTest {
     }
 
     @Test
-    void testHealthDetails_ShouldContainAllFields() {
+    void testHealthDetailsShouldContainAllFields() {
         // Arrange
         String url = "http://localhost:" + port + "/api/v1/health/details";
 
@@ -71,7 +71,7 @@ class HealthDetailsControllerTest {
     }
 
     @Test
-    void testHealthDetails_ShouldReturnCorrectMetadata() {
+    void testHealthDetailsShouldReturnCorrectMetadata() {
         // Arrange
         String url = "http://localhost:" + port + "/api/v1/health/details";
 
